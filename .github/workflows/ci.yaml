@@ -30,6 +30,13 @@ jobs:
         run: gcc expo/expo.c -lm -o sdo-expo
 
       # TASK 1.1: Add your functional test step here.
+    
+    -name: Run application test
+    run: |
+      output=$(.sdo/-expo 2 10) 
+      echo "Output:$output"
+      test "$output" = "2 ^ 10 = 1024"
+      
 
   # ============================================================
   # TASK 1.2 — THE UNPROTECTED DOCKER BUILD
